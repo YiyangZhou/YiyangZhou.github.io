@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zhouyiyang's blog</title><meta name="author" content="Zhou Yiyang"><meta name="copyright" content="Zhou Yiyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="C++&#x2F;Python&#x2F;深度学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zhouyiyang&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Zhouyiyang&#39;s blog">
+<meta property="og:description" content="C++&#x2F;Python&#x2F;深度学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/img/%E5%A4%B4%E5%83%8F.jpg">
+<meta property="article:author" content="Zhou Yiyang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/img/%E5%A4%B4%E5%83%8F.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-07-10 22:48:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Zhouyiyang's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Zhouyiyang's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Zhouyiyang's blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/YiyangZhou" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/zhouyiyangzzy" target="_blank" title="Gitee"><i class="fab fa-git"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/28/pytorch%E5%A4%8D%E7%8E%B0yolov3/" title="pytorch复现yolov3">     <img class="post_bg" src="https://i.loli.net/2021/01/16/pEduCQqlryHwS5f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pytorch复现yolov3"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/pytorch%E5%A4%8D%E7%8E%B0yolov3/" title="pytorch复现yolov3">pytorch复现yolov3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T05:59:07.000Z" title="发表于 2021-05-28 13:59:07">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/yolo/">yolo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/pytorch/">pytorch</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/yolo/">yolo</a></span></div><div class="content">yolov3的实现思路一.预测部分1.主干特征提取网络Darknet53
+Darknet53为Yolov3的主干特征提取网络，它有两个主要特征：
+1.使用了残差网络Residual，Darknet53中的残差卷积：首先进行一次卷积核大小为3×3，步长为2的卷积，用于压缩特征层的宽和高，这时候我们获得一个新的特征层layer，之后我们对此特征层：进行一次1×1的卷积和一次3×3的卷积，把得到的结果加上layer，便构成了残差结构。之后通过不断地1×1和3×3卷积以及残差跃迁的叠加，加大网络深度。残差网络的特点是容易优化，并且能够通过增加相当的深度来提高准确率。其内部的残差块使用了跳跃连接，缓解了在深度神经网络中增加深度带来的梯度消失问题。
+2.它的每个卷积部分使用了特有的DarknetConv2D结构每一次卷积的时候进行l2正则化，完成卷积后进行BatchNormalization标准化与LeakyReLU。普通的ReLU是将所有的负值都设为零，Leaky ReLU则是给所有负值赋予一个非零斜率。以数学的方式我们可以表示为：
+
+Darknet53的网络结构放在darknet.py
+123 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/28/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" title="go语言入门">     <img class="post_bg" src="https://i.loli.net/2021/01/16/vjBENM6Hu2nFeLo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="go语言入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/28/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" title="go语言入门">go语言入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T04:40:35.000Z" title="发表于 2021-05-28 12:40:35">2021-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/go%E8%AF%AD%E8%A8%80/">go语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/go%E8%AF%AD%E8%A8%80/">go语言</a></span></div><div class="content">第一章go语言快速开发入门1.1go语言转义字符Golang常用的转义字符
+123451.\t:一个制表符，实现对齐的功能 -----&gt; 常用于排版2.\n:换行符3.\\:一个\4.\&quot;:一个&quot;5.\r:一个回车 fmt.Println(&quot;天龙八部\r张飞&quot;)
+
+
+以上是常用的转义字符
+
+1.2go语言的注释注释的介绍
+用于注解说明解释程序的文字就是注释，注释提高了代码的可读性
+注释的分类
+行注释基本语法：
+// 注释内容
+
+快捷键：ctrl + /
+
+块注释（多行注释）基本语法：
+/*
+注释内容
+*/
+总结1）对于行注释和块注释，被注释的文字，不会被go编译器执行
+2）块注释里面不允许有块注释嵌套
+1.3go语言编程规范和注释风格正确的注释和注释风格
+1）go官方推荐使用行注释来注释整个方法和语句
+2）具体看go源码
+正确的缩进和空白
+1）使用一次tab操作，实现缩进，默认整体向右移动，需要的时候可以使用shift + tab整体向左移动
+2）使用gofmt来进行格式化操作
+
+3）运算符两边习惯性的加上空格
+4）正确的编码风格
+1234 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/26/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E6%8F%90%E9%AB%98/" title="第四章提高">     <img class="post_bg" src="https://i.loli.net/2021/01/16/pEduCQqlryHwS5f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第四章提高"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/26/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E6%8F%90%E9%AB%98/" title="第四章提高">第四章提高</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-26T06:48:10.000Z" title="发表于 2021-05-26 14:48:10">2021-05-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/pytorch%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">pytorch框架的学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/pytorch/">pytorch</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">第四章提高先引入头文件：
+1234567891011%matplotlib inlineimport torch,os,torchvisionimport torch.nn as nnimport torch.nn.functional as Fimport pandas as pdimport numpy as npimport matplotlib.pyplot as pltfrom torch.utils.data import DataLoader, Datasetfrom torchvision import datasets, models, transformsfrom PIL import Imagefrom sklearn.model_selection import StratifiedShuffleSplit
+
+4.1Fine tuning模型微调在前面的介绍卷积神经网络的时候，说到过PyTorch已经为我们训练好了一些经典的网络模型，那么这些预训练好的模型是用来做什么的呢？其实就是为了我们进行微调使用的。
+4.1.1什么是微调针对于某个任务，自己的训练数据不多， ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/25/%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%AE%9E%E8%B7%B5/" title="第三章实践">     <img class="post_bg" src="https://i.loli.net/2021/01/16/LJ94aMF2A7CsWRp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第三章实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/25/%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%AE%9E%E8%B7%B5/" title="第三章实践">第三章实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-25T03:23:56.000Z" title="发表于 2021-05-25 11:23:56">2021-05-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/pytorch%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">pytorch框架的学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/pytorch/">pytorch</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">第三章实践第一节logistic回归二元分类1.1logistics回归实战在这一章里面，我们将处理一下结构化数据，并使用logistic回归对结构化数据进行简单的分类。
+1.1.1 logistics回归介绍
+logistic回归是一种广义线性回归（generalized linear model），与多重线性回归分析有很多相同之处。它们的模型形式基本上相同，都具有 wx + b，其中w和b是待求参数，其区别在于他们的因变量不同，多重线性回归直接将wx+b作为因变量，即y =wx+b,而logistic回归则通过函数L将wx+b对应一个隐状态p，p =L(wx+b),然后根据p 与1-p的大小决定因变量的值。如果L是logistic函数，就是logistic回归，如果L是多项式函数就是多项式回归。
+说的更通俗一点，就是logistic回归会在线性回归后再加一层logistic函数的调用。
+logistic回归主要是进行二分类预测，我们在激活函数时候讲到过 Sigmod函数，Sigmod函数是最常见的logistic函数，因为Sigmod函数的输出的是是对于0~1之间的概率值，当概率大 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/22/%E7%AC%AC%E4%BA%8C%E7%AB%A0pytorch%E5%9F%BA%E7%A1%80/" title="第二章pytorch基础">     <img class="post_bg" src="https://i.loli.net/2021/01/16/vjBENM6Hu2nFeLo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第二章pytorch基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/22/%E7%AC%AC%E4%BA%8C%E7%AB%A0pytorch%E5%9F%BA%E7%A1%80/" title="第二章pytorch基础">第二章pytorch基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-22T02:07:45.000Z" title="发表于 2021-05-22 10:07:45">2021-05-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/pytorch%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">pytorch框架的学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/pytorch/">pytorch</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">第二章pytorch基础第一节pytorch基础1.1张量张量的英文是Tensor，它是PyTorch里面基础的运算单位，与Numpy的ndarray相同都表示的是一个多维的矩阵。 与ndarray的最大区别就是，PyTorch的Tensor可以在 GPU 上运行，而 numpy 的 ndarray 只能在 CPU 上运行，在GPU上运行大大加快了运算速度。
+下面我们生成一个简单的张量
+12345x = torch.rand(2, 3)x&gt;&gt;tensor([[0.6904, 0.7419, 0.8010],        [0.1722, 0.2442, 0.8181]])
+
+以上生成了一个，2行3列的的矩阵，我们看一下他的大小：
+1234567# 可以使用与numpy相同的shape属性查看print(x.shape)# 也可以使用size()函数，返回的结果都是相同的print(x.size())&gt;&gt;torch.Size([2, 3])torch.Size([2, 3])
+
+张量（Tensor）是一个定义在一些向量空间和一些对偶空间的笛卡儿积上的多重线性映射 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/20/%E7%AC%AC%E4%B8%80%E7%AB%A0pytorch%E5%85%A5%E9%97%A8/" title="第一章pytorch入门">     <img class="post_bg" src="https://i.loli.net/2021/01/16/pEduCQqlryHwS5f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一章pytorch入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/20/%E7%AC%AC%E4%B8%80%E7%AB%A0pytorch%E5%85%A5%E9%97%A8/" title="第一章pytorch入门">第一章pytorch入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-20T06:19:40.000Z" title="发表于 2021-05-20 14:19:40">2021-05-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/pytorch%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">pytorch框架的学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/pytorch/">pytorch</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">第一章pytorch入门1.1pytorch简介1.1.1什么是torch？Torch是一个与Numpy类似的张量（Tensor）操作库，与Numpy不同的是Torch对GPU支持的很好，Lua是Torch的上层包装。PyTorch和Torch使用包含所有相同性能的C库：TH, THC, THNN, THCUNN，并且它们将继续共享这些库。这样的回答就很明确了，其实PyTorch和Torch都使用的是相同的底层，只是使用了不同的上层包装语言。
+
+注：LUA虽然快，但是太小众了，所以才会有PyTorch的出现。
+
+1.1.2什么是pytorch？PyTorch是一个基于Torch的Python开源机器学习库，用于自然语言处理等应用程序。 它主要由Facebook的人工智能研究小组开发。
+PyTorch提供两种高级功能：
+
+具有强大GPU加速的张量计算（如Numpy）
+包含自动求导系统的深度神经网络
+
+1.2pytorch：60分钟官方入门文档1.2.1张量在==神经网络数学基础==中有讲。
+Tensors(张量)与Numpy中的ndarrays类似，但是在PyTorch中Tensors可 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/30/opencv-%E5%9B%BE%E5%83%8F/" title="opencv-图像">     <img class="post_bg" src="https://i.loli.net/2021/01/16/LJ94aMF2A7CsWRp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="opencv-图像"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/30/opencv-%E5%9B%BE%E5%83%8F/" title="opencv-图像">opencv-图像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-30T07:19:35.000Z" title="发表于 2021-04-30 15:19:35">2021-04-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">Opencv图像处理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">opencv图像处理</a></span></div><div class="content">图像读取与显示知识点：
+读取图像-imread
+显示图像-imshow
+12345678import cv2 as cv# imread(传入图片路径)src = cv.imread(&quot;C:/Users/Administrator/Desktop/test.jpg&quot;)cv.namedWindow(&quot;input&quot;, cv.WINDOW_AUTOSIZE)# imshow(窗口名， src)cv.imshow(&quot;input&quot;, src)cv.waitKey(0)cv.destroyAllWindows()
+
+
+其中waitKey(0)表示阻塞等待用户键盘输入，用户按键盘任意键会停止阻塞，继续执行到程序正常退出
+destroyAllWindows()显示调用销毁窗口这样更加安全
+
+123456789101112131415161718#include &lt;opencv2/opencv.hpp&gt;#include &lt;iostream&gt;using namespace cv;using namespace std;in ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="背包问题总结">     <img class="post_bg" src="https://i.loli.net/2021/01/16/vjBENM6Hu2nFeLo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="背包问题总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="背包问题总结">背包问题总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-24T02:01:48.000Z" title="发表于 2021-04-24 10:01:48">2021-04-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/leetcode/">leetcode</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/leetcode/">leetcode</a></span></div><div class="content">背包问题总结基本上常见的背包问题有三种：
+1、组合问题。2、True、False问题。3、最大最小问题
+对于leetcode中背包问题整理：
+
+​        1、组合问题：
+
+组合总和 Ⅳ
+
+目标和
+
+零钱兑换 II
+
+
+  2、True、False问题：
+
+单词拆分
+
+分割等和子集
+
+
+  3、最大最小问题：
+
+一和零
+
+零钱兑换
+
+
+
+核心公式解决这三类问题对应这常用的核心公式：
+组合问题公式
+1dp[i] += dp[i-num]
+
+True、False问题公式
+1dp[i] = dp[i] or dp[i-num]
+
+最大最小问题公式
+1dp[i] = min(dp[i], dp[i-num]+1)或者dp[i] = max(dp[i], dp[i-num]+1)
+
+背包问题分析步骤1.分析是否为背包问题。
+
+如何判断背包问题
+背包问题具备的特征：给定一个target，target可以是数字也可以是字符串，再给定一个数组nums，nums中装的可能是数字，也可能是字符串，问：能否使用nums中的元素做各种排列组合得到target。
+
+2.是以上三种背包问题中的哪一种。
+3. ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/11/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/" title="C++提高编程">     <img class="post_bg" src="https://i.loli.net/2021/01/16/LJ94aMF2A7CsWRp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++提高编程"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/11/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/" title="C++提高编程">C++提高编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-11T02:43:22.000Z" title="发表于 2021-04-11 10:43:22">2021-04-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-%E6%8F%90%E9%AB%98%E7%9F%A5%E8%AF%86/">C++提高知识</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/C/">C++</a></span></div><div class="content">C++提高编程1 模板1.1 模板的概念模板就是建立通用的模具，大大提高复用性
+模板的特点：
+
+模板不可以直接使用，它只是一个框架
+模板的通用并不是万能的
+
+1.2 函数模板
+C++另一种编程思想称为 ==泛型编程== ，主要利用的技术就是模板
+
+
+C++提供两种模板机制:函数模板和类模板 
+
+1.2.1 函数模板语法函数模板作用：
+建立一个通用函数，其函数返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。
+语法： 
+12template&lt;typename T&gt;函数声明或定义
+
+解释：
+template  —  声明创建模板
+typename  — 表明其后面的符号是一种数据类型，可以用class代替
+T    —   通用的数据类型，名称可以替换，通常为大写字母
+示例：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//交换整型函数void swapInt(int&amp; a, int&amp; b) &#123;	int ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/31/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/" title="C++核心编程">     <img class="post_bg" src="https://i.loli.net/2021/01/16/vjBENM6Hu2nFeLo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++核心编程"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/31/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/" title="C++核心编程">C++核心编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-31T02:43:22.000Z" title="发表于 2021-03-31 10:43:22">2021-03-31</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/C-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/">C++核心知识</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/C/">C++</a></span></div><div class="content">C++核心编程本阶段主要针对C++面向对象编程技术做详细讲解，探讨C++中的核心和精髓。
+1 内存分区模型C++程序在执行时，将内存大方向划分为4个区域
+
+代码区：存放函数体的二进制代码，由操作系统进行管理的
+全局区：存放全局变量和静态变量以及常量
+栈区：由编译器自动分配释放, 存放函数的参数值,局部变量等
+堆区：由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收
+
+内存四区意义：
+不同区域存放的数据，赋予不同的生命周期, 给我们更大的灵活编程
+1.1 程序运行前​    在程序编译后，生成了exe可执行程序，未执行该程序前分为两个区域
+​    代码区：
+​        存放 CPU 执行的机器指令
+​        代码区是共享的，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可
+​        代码区是只读的，使其只读的原因是防止程序意外地修改了它的指令
+​    全局区：
+​        全局变量和静态变量存放在此.
+​        全局区还包含了常量区, 字符串常量和其他常量(const修饰的全局常量)也存放在此.
+​        该区域的数 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Zhou Yiyang</div><div class="author-info__description">C++/Python/深度学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YiyangZhou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/YiyangZhou" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/zhouyiyangzzy" target="_blank" title="Gitee"><i class="fab fa-git"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">这是我的个人学习博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/28/pytorch%E5%A4%8D%E7%8E%B0yolov3/" title="pytorch复现yolov3">pytorch复现yolov3</a><time datetime="2021-05-28T05:59:07.000Z" title="发表于 2021-05-28 13:59:07">2021-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/28/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" title="go语言入门">go语言入门</a><time datetime="2021-05-28T04:40:35.000Z" title="发表于 2021-05-28 12:40:35">2021-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/26/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E6%8F%90%E9%AB%98/" title="第四章提高">第四章提高</a><time datetime="2021-05-26T06:48:10.000Z" title="发表于 2021-05-26 14:48:10">2021-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/25/%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%AE%9E%E8%B7%B5/" title="第三章实践">第三章实践</a><time datetime="2021-05-25T03:23:56.000Z" title="发表于 2021-05-25 11:23:56">2021-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/22/%E7%AC%AC%E4%BA%8C%E7%AB%A0pytorch%E5%9F%BA%E7%A1%80/" title="第二章pytorch基础">第二章pytorch基础</a><time datetime="2021-05-22T02:07:45.000Z" title="发表于 2021-05-22 10:07:45">2021-05-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">C++基础知识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%8F%90%E9%AB%98%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">C++提高知识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">C++核心知识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Django%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">Django框架的学习</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"><span class="card-category-list-name">Opencv图像处理</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/go%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">go语言</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hexo/"><span class="card-category-list-name">hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/leetcode/"><span class="card-category-list-name">leetcode</span><span class="card-category-list-count">1</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories/">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/python/" style="font-size: 1.5em; color: rgb(14, 9, 131)">python</a><a href="/tags/Django/" style="font-size: 1.5em; color: rgb(157, 14, 68)">Django</a><a href="/tags/go%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: rgb(116, 175, 149)">go语言</a><a href="/tags/hexo/" style="font-size: 1.1em; color: rgb(7, 146, 115)">hexo</a><a href="/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: rgb(180, 52, 48)">常见问题</a><a href="/tags/pytorch/" style="font-size: 1.4em; color: rgb(59, 45, 15)">pytorch</a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.3em; color: rgb(141, 137, 191)">深度学习</a><a href="/tags/leetcode/" style="font-size: 1.1em; color: rgb(194, 41, 181)">leetcode</a><a href="/tags/yolo/" style="font-size: 1.1em; color: rgb(5, 129, 63)">yolo</a><a href="/tags/C/" style="font-size: 1.2em; color: rgb(146, 108, 28)">C++</a><a href="/tags/opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: rgb(52, 64, 77)">opencv图像处理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">14</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">140.3k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-07-10T14:48:25.865Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Zhou Yiyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script></div></body></html>
