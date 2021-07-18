@@ -7683,4 +7683,29 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从PointNet到PointNet++理论及pytorch代码</title>
+    <url>/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="1-点云是什么"><a href="#1-点云是什么" class="headerlink" title="1.点云是什么"></a>1.点云是什么</h1><h2 id="1-1三维数据的表示形式"><a href="#1-1三维数据的表示形式" class="headerlink" title="1.1三维数据的表示形式"></a>1.1三维数据的表示形式</h2><p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/1.png"></p>
+<p>三维数据的表述形式一般分为四种：</p>
+<ul>
+<li>点云：由N个D维的点组成，当这个D = 3的时候一般代表着( x , y , z )的坐标，当然也可以包括一些法向量、强度等别的特征。</li>
+<li>Mesh：由三角面片和正方形面片组成。</li>
+<li>体素：由三维栅格将物体用0和1表征。</li>
+<li>多角度的RGB图像或者RGB-D图像</li>
+</ul>
+<h2 id="1-2为什么使用点云"><a href="#1-2为什么使用点云" class="headerlink" title="1.2为什么使用点云"></a>1.2为什么使用点云</h2><p>点云有很多优势，也越来越受到雷达自动驾驶的青睐</p>
+<ul>
+<li>点云更接近于设备的原始表征（雷达扫描物体直接产生点云）</li>
+<li>点云的表达方式更加简单，一个物体可以仅用一个N×D的矩阵表示</li>
+</ul>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/2.png"></p>
+]]></content>
+      <categories>
+        <category>三维点云</category>
+      </categories>
+      <tags>
+        <tag>三维点云</tag>
+      </tags>
+  </entry>
 </search>
