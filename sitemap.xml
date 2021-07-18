@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2021/05/28/go%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/</loc>
-    
-    <lastmod>2021-06-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2021/05/28/pytorch%E5%A4%8D%E7%8E%B0yolov3/</loc>
     
     <lastmod>2021-05-30</lastmod>
@@ -221,7 +214,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -229,77 +222,70 @@
   
   <url>
     <loc>http://yoursite.com/tags/python/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/Django/</loc>
-    <lastmod>2021-07-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/go%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/hexo/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/pytorch/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/leetcode/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/yolo/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/C/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,70 +294,63 @@
   
   <url>
     <loc>http://yoursite.com/categories/Django%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-07-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/go%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/hexo/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/pytorch%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/leetcode/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/yolo/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/C-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/C-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/C-%E6%8F%90%E9%AB%98%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
