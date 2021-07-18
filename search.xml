@@ -7700,6 +7700,64 @@
 <li>点云的表达方式更加简单，一个物体可以仅用一个N×D的矩阵表示</li>
 </ul>
 <p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/2.png"></p>
+<h2 id="1-3点云上以往的相关工作"><a href="#1-3点云上以往的相关工作" class="headerlink" title="1.3点云上以往的相关工作"></a>1.3点云上以往的相关工作</h2><p>在PointNet出现以前，点云上的深度学习模型大致分为三类（这里不细述）：</p>
+<ul>
+<li>基于3DCNN的体素模型：先将点云映射到体素空间上，在通过3DCNN进行分类或者分割。但是缺点是计算量受限制，目前最好的设备也大致只能处理32 × 32 × 32的体素；另外由于体素网格的立方体性质，点云表面很多特征都没有办法被表述出来，因此模型效果差。</li>
+<li>将点云映射到2D空间中利用CNN分类</li>
+<li>利用传统的人工点云特征分类，例如：<ul>
+<li>normal 法向量</li>
+<li>intensity 激光雷达的采样的时候一种特性强度信息的获取是激光扫描仪接受装置采集到的回波强度，此强度信息与目标 的表面材质、粗糙度、入射角方向，以及仪器的发射能量，激光波长有关</li>
+<li>local density 局部稠密度</li>
+<li>local curvature 局部曲率</li>
+<li>linearity, planarity and scattering propesed by Dimensionality based scale selection in 3D lidar point clouds</li>
+<li>verticality feature proposed by Weakly supervised segmentation-aided classification of urban scenes from 3d LiDAR point clouds</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-PointNet"><a href="#2-PointNet" class="headerlink" title="2.PointNet"></a>2.PointNet</h1><p>对于PointNet，它具有两个非常重要的特性：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/3.png"></p>
+<h2 id="2-1基于点云的置换不变性"><a href="#2-1基于点云的置换不变性" class="headerlink" title="2.1基于点云的置换不变性"></a>2.1基于点云的置换不变性</h2><h3 id="2-1-1由对称函数到PointNet（vanilla）"><a href="#2-1-1由对称函数到PointNet（vanilla）" class="headerlink" title="2.1.1由对称函数到PointNet（vanilla）"></a>2.1.1由对称函数到PointNet（vanilla）</h3><p>点云实际上拥有<strong>置换不变性</strong>的特点，那么什么是置换不变性呢，简单地说就是点的排序不影响物体的性质。</p>
+<p>当一个N × D在N的维度上随意的打乱之后，其表述的其实是同一个物体。因此针对点云的置换不变性，其设计的网络必须是一个对称的函数：<br><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/4.png"></p>
+<p>我们经常看到的<strong>SUM</strong>和<strong>MAX</strong>等函数其实都是对称函数。</p>
+<p>因此我们可以利用max函数设计一个很简单的点云网络，如下：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/5.png"></p>
+<p>但是这样的网络有一个问题，就是每个点损失的特征太多了，输出的全局特征仅仅继承了三个坐标轴上最大的那个特征，因此我们不妨先将点云上的每一个点映射到一个高维的空间（例如1024维），目的是使得再次做MAX操作，损失的信息不会那么多。</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/6.png"></p>
+<p>此时我们发现，当我们将点云的每个点先映射到一个<strong>冗余的高维空间</strong>后，再去进行max的对称函数操作，损失的特征就没那么多了。由此，就可以设计出这PointNet的雏形，称之为**PointNet(vanilla)**：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/7.png"></p>
+<h3 id="2-1-2理论证明"><a href="#2-1-2理论证明" class="headerlink" title="2.1.2理论证明"></a>2.1.2理论证明</h3><p>论文中其实有给出理论的证明，大致的意思是：任意一个在Hausdorff空间上连续的函数，都可以被这样的PointNet(vanilla)无限的逼近。</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/8.png"></p>
+<h2 id="2-2基于点云的旋转不变性"><a href="#2-2基于点云的旋转不变性" class="headerlink" title="2.2基于点云的旋转不变性"></a>2.2基于点云的旋转不变性</h2><p>点云的旋转不变性指的是，给予一个点云一个旋转，所有的x , y , z x,y,zx,y,z坐标都变了，但是代表的还是同一个物体。<br><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/9.png"></p>
+<p>因此对于普通的PointNet(vanilla)，如果先后输入同一个但是经过不同旋转角度的物体，它可能不能很好地将其识别出来。在论文中的方法是新引入了一个T-Net网络去学习点云的旋转，将物体校准，剩下来的PointNet(vanilla)只需要对校准后的物体进行分类或者分割即可。<br><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/10.png"></p>
+<p>由图可以看出，由于点云的旋转非常的简单，只需要对一个N × D的点云矩阵乘以一个D × D的旋转矩阵即可，因此对输入点云学习一个3 × 3的矩阵，即可将其矫正；同样的将点云映射到K维的冗余空间后，再对K维的点云特征做一次校对，只不过这次校对需要引入一个正则化惩罚项，希望其尽可能接近于一个正交矩阵。<br><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/11.png"></p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/12.png"></p>
+<h1 id="2-3网络结构"><a href="#2-3网络结构" class="headerlink" title="2.3网络结构"></a>2.3网络结构</h1><p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/13.png"></p>
+<h1 id="3-PointNet"><a href="#3-PointNet" class="headerlink" title="3.PointNet++"></a>3.PointNet++</h1><h2 id="3-1PointNet的缺点"><a href="#3-1PointNet的缺点" class="headerlink" title="3.1PointNet的缺点"></a>3.1PointNet的缺点</h2><p>PointNet的缺点为：损失了局部特征</p>
+<p>从很多实验结果都可以看出，PointNet对于场景的分割效果十分一般，由于其网络直接暴力地将所有的点最大池化为了一个全局特征，因此局部点与点之间的联系并没有被网络学习到。在分类和物体的Part Segmentation中，这样的问题还可以通过中心化物体的坐标轴部分地解决，但在场景分割中，这就导致效果十分一般了。</p>
+<h2 id="3-2Multi-Scale-PointNet"><a href="#3-2Multi-Scale-PointNet" class="headerlink" title="3.2Multi-Scale PointNet"></a>3.2Multi-Scale PointNet</h2><p>作者在第二代PointNet中主要借鉴了CNN的多层感受野的思想。CNN通过分层不断地使用卷积核扫描图像上的像素并做内积，使得越到后面的特征图感受野越大，同时每个像素包含的信息也越多。而PointNet++就是仿照了这样的结构，具体如下：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/14.png"></p>
+<p>其先通过在整个点云的局部采样并划一个范围，将里面的点作为局部的特征，用PointNet进行一次特征的提取。因此，通过了多次这样的操作以后，原本的<strong>点的个数变得越来越少</strong>，而每个点都是有上一层更多的点通过PointNet提取出来的局部特征，也就是<strong>每个点包含的信息变多了</strong>。文章将这样的一个层成为<strong>Set Abstraction。</strong></p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/15.png"></p>
+<h2 id="3-3-Set-Abstraction的实现细节"><a href="#3-3-Set-Abstraction的实现细节" class="headerlink" title="3.3 Set Abstraction的实现细节"></a>3.3 Set Abstraction的实现细节</h2><p>一个Set Abstraction主要由三部分组成：</p>
+<ul>
+<li>Sampling：利用FPS（最远点采样）随机采样点</li>
+<li>Grouping：利用Ball Query划一个R为半径的圈，将每个圈里面的点云作为一簇</li>
+<li>PointNet： 对Sampling+Grouping以后的点云进行<strong>局部的全局特征</strong>提取</li>
+</ul>
+<h2 id="3-4分类网络"><a href="#3-4分类网络" class="headerlink" title="3.4分类网络"></a>3.4分类网络</h2><p><strong>分类网络</strong>只要通过这样逐层的提取局部特征，最后总结出全局特征就可以输出分类结果了，如图：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/16.png"></p>
+<h1 id="3-5分割网络"><a href="#3-5分割网络" class="headerlink" title="3.5分割网络"></a>3.5分割网络</h1><p><strong>分割网络</strong>相比而言较为复杂，其会先将点云提取一个全局的特征，再通过这个全局的特征逐步上采样，大致的流程如下：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/17.png"></p>
+<p>作者在论文中讨论了上采样的一些方法，当然最简单的就是简单的<strong>广播复制Broadcasting</strong>，即将每个点的附近的点的特征都变成和这个点一样，但是这样的方法会使得没有办法处理一些范围相冲突的点，或者范围没有覆盖到的点，如图：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/18.png"></p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/19.png"></p>
+<p>因此在论文中作者采用的是<strong>线性差值</strong>的方法，具体的公式如下：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/20.png"></p>
+<p>简单来说就是<strong>距离越远的点权重越小</strong>，最后对于每一个点的权重再做一个全局的<strong>归一化</strong>。最后分割网络的结构长成这个样子：</p>
+<p><img src="/2021/07/18/%E4%BB%8EPointNet%E5%88%B0PointNet-%E7%90%86%E8%AE%BA%E5%8F%8Apytorch%E4%BB%A3%E7%A0%81/21.png"></p>
+<p><strong>需要注意的是</strong>，与图像分割网络U-Net类似，对于相同的点个数的层，作者采用了直连的方式将Encoder里面的特征拼接到了Decoder的特征后。</p>
+<h2 id="3-6方法的不足"><a href="#3-6方法的不足" class="headerlink" title="3.6方法的不足"></a>3.6方法的不足</h2><p>通过上述方法实现的PointNet++虽然在点云上的分类和分割效果有了一定的提升，但是作者发现，其在点云的缺失鲁邦性上似乎变得更差了。其原因是因为激光收集点云的时候总是在近的地方密集，在远的地方稀疏，因此当Sampling和Grouping的操作在稀疏的地方进行的时候，一个点可能代表了很多很多的局部特征，因此一旦缺失，网络的性能就会极大的受影响。</p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h1><p>PointNet系列基本是近两年来所有点云分割网络的baseline，大部分state-of-art的网络也是通过以这两个网络为基础构造出来的。其优点非常的明显，就是<strong>参数量小</strong>；但其缺点就是对于<strong>局部的特征的抓取还不是特别的完善</strong>，这也是未来可以改进的地方。</p>
 ]]></content>
       <categories>
         <category>三维点云</category>
